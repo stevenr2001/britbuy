@@ -1,0 +1,910 @@
+/* Base Styles & Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&family=Georgia&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Standard body selector */
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    color: #e0e0e0; /* Slightly lighter default text color */
+    font-family: 'Raleway', sans-serif; /* Use Raleway as base font */
+    line-height: 1.7; /* Slightly increased line height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Georgia', serif; /* Georgia for headings */
+    color: white; /* Ensure headings are white */
+    line-height: 1.3; /* Consistent heading line height */
+}
+
+h1 { /* Site Title */
+    font-size: clamp(2.5rem, 6vw, 3.8rem); /* Responsive font size */
+    color: white;
+    text-shadow: 0 0 12px rgba(255, 165, 0, 0.6); /* Slightly stronger shadow */
+    padding: 15px 30px;
+    margin: 0; /* Reset margin if needed */
+    display: inline-block; /* Keep inline-block if centering method relies on it */
+}
+
+h2 { /* Major Section Headings (e.g., Categories, About Us, Specs) */
+   font-size: clamp(1.8rem, 4vw, 2.2rem);
+   margin-bottom: 20px;
+   color: orange; /* Use theme color for H2 */
+   /* text-align: center; */ /* Center alignment can be set per section if needed */
+}
+
+h3 { /* Sub-Section Headings (e.g., Product Column Titles) */
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+    margin-bottom: 25px;
+    /* text-align: center; */
+    color: #f0f0f0;
+}
+
+h4 { /* Product Titles on cards/lists */
+    font-size: 1.1rem;
+    color: #333; /* Darker color for contrast on white card */
+    font-family: 'Raleway', sans-serif; /* Use Raleway for product titles */
+    font-weight: 700;
+    margin-bottom: 10px; /* Add some space below */
+}
+
+p {
+    margin-bottom: 1em; /* Consistent paragraph spacing */
+}
+
+a {
+    color: orange; /* Default link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff8c00; /* Darker orange on hover */
+}
+
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 25px; /* Indent lists */
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 15px; /* Row gap, column gap */
+    padding: 15px 20px; /* Slightly reduced padding */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border-bottom: 3px solid orange;
+    position: sticky; /* Make nav sticky */
+    top: 0;
+    z-index: 1000; /* Ensure nav is above other content */
+    backdrop-filter: blur(5px); /* Optional: blur effect */
+    -webkit-backdrop-filter: blur(5px);
+}
+
+nav a {
+    color: #111; /* Dark text for contrast on orange */
+    background: orange;
+    padding: 10px 25px; /* Adjusted padding */
+    border-radius: 25px;
+    font-family: 'Raleway', sans-serif; /* Use Raleway */
+    font-size: 1rem; /* Adjusted size */
+    font-weight: 700; /* Bold */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+nav a:hover {
+    background: #ff8c00; /* Darker orange */
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav a.current {
+    background-color: maroon;
+    color: white; /* White text on maroon */
+    font-weight: 700; /* Keep bold */
+    font-size: 1.05rem; /* Slightly larger */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+nav a.current:hover {
+    background: #a52a2a; /* Darker maroon on hover */
+    color: #f0f0f0;
+    transform: none; /* Disable hover transform for current */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px 30px; /* Adjusted padding */
+}
+
+.hyphen { /* Span for hyphen styling */
+    color: red;
+    font-weight: bold;
+    margin: 0 2px; /* Add slight spacing */
+}
+
+/* Main Content Area (Generic) */
+main {
+    flex: 1; /* Allows main content to grow in the body's flex column */
+    padding: 30px 15px; /* Consistent padding */
+    max-width: 1200px; /* Constrain width */
+    margin: 0 auto; /* Center */
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Generic Section Styling (can be overridden) */
+section {
+    margin-bottom: 40px; /* Consistent spacing below sections */
+    padding: 20px; /* Add padding inside sections */
+    background: rgba(255, 255, 255, 0.05); /* Very subtle background for sections */
+    border-radius: 8px; /* Rounded corners for sections */
+}
+
+/* Form Styling (for Contact & Login) */
+.form-container {
+    background-color: #fff; /* White background for forms */
+    color: #333;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px; /* Limit form width */
+    margin: 20px auto; /* Center form */
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #333; /* Dark heading */
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700; /* Bold labels */
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: orange;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-button {
+    display: inline-block;
+    background: orange;
+    background-image: linear-gradient(to bottom, #ffae42, #ff8c00); /* Gradient */
+    color: black;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 700; /* Bold */
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+    border: 1px solid #e67e00; /* Darker border */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    width: 100%; /* Make button full width */
+    text-align: center;
+}
+
+.form-button:hover {
+    background: #ff8c00;
+    background-image: linear-gradient(to bottom, #ff9d21, #e67e00);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 165, 0, 0.5); /* Stronger shadow */
+}
+
+.form-link { /* For "Forgot Password?" etc. */
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Simple Page Content Styling (for What's New, Delivery Options) */
+.content-page {
+    background-color: #fff;
+    color: #333;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+.content-page h2 {
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid orange;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+.content-page p {
+    margin-bottom: 1.2em;
+    line-height: 1.8;
+}
+.content-page ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+.content-page li {
+    margin-bottom: 0.8em;
+}
+
+
+/* ===== Store Page Specific Layout ===== */
+
+/* Container for the sidebar + main content layout */
+.store-layout-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 25px; /* Adjust space between sidebar and main content */
+    margin-top: 30px; /* Adjusted space below the header */
+    width: 100%; /* Ensure it takes full width available within its parent */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Category Sidebar Styling */
+.category-sidebar {
+    flex: 0 0 240px; /* Slightly wider fixed width */
+    background-color: #f8f8f8;
+    color: #333; /* Dark text for sidebar */
+    padding: 25px; /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Match other sections */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    align-self: stretch; /* Stretch if container is taller */
+}
+
+@media (max-width: 800px) {
+    .category-sidebar {
+        flex: 1 1 100%; /* Take full width when wrapping */
+        margin-bottom: 20px;
+        align-self: auto; /* Reset alignment */
+    }
+}
+
+
+.category-sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em; /* Slightly larger */
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: left; /* Align heading left */
+}
+
+/* Category List Styling */
+.category-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-item {
+    margin-bottom: 12px; /* Increased space */
+}
+
+/* Category Link Styling */
+.category-link {
+    text-decoration: none;
+    color: #444;
+    display: block;
+    padding: 10px 12px; /* Increased padding */
+    border-radius: 5px; /* Slightly more rounded */
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    font-weight: 700; /* Bolder links */
+}
+
+.category-link:hover,
+.category-link:focus {
+    background-color: #e9e9e9;
+    color: #0056b3;
+    padding-left: 18px; /* Indent more on hover */
+}
+
+/* Main Content Area Styling (for the store page) */
+.main-content {
+    flex-grow: 1; /* Allows main content to take remaining horizontal space */
+    flex-basis: 600px; /* Give it a base width */
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text */
+    border-radius: 8px; /* Match other sections */
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Styles for the product columns within .main-content */
+.products {
+     display: flex;
+     flex-direction: column; /* Stack columns vertically */
+     gap: 30px; /* Space between columns */
+}
+
+.product-column {
+    /* Styling for each column (Most Popular, Recommended) */
+}
+
+.product-column h3 { /* Changed from h2 for semantics */
+    color: #333; /* Match main content text color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid orange; /* Thicker border */
+    padding-bottom: 10px;
+    text-align: left; /* Align left */
+    display: inline-block; /* Fit border to text */
+}
+
+.product-item {
+    /* Styling for individual product boxes */
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+    padding: 20px; /* Increased padding */
+    border-radius: 6px;
+    display: flex; /* Use flex for image/info layout */
+    gap: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 500px) {
+    .product-item {
+        flex-direction: column; /* Stack image/info on small screens */
+    }
+}
+
+
+.product-image-container {
+    flex: 0 0 100px; /* Fixed width for image container */
+    height: 100px; /* Fixed height */
+    margin-bottom: 0; /* Reset margin */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 4px;
+}
+
+.product-image { /* Style for <img> tag */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+}
+
+.product-info {
+    flex: 1; /* Allow info to take remaining space */
+}
+
+.product-title { /* Already h3 in store.html */
+    font-size: 1.2em; /* Slightly larger */
+    color: #333;
+    margin-bottom: 8px;
+    font-family: 'Georgia', serif; /* Use heading font */
+}
+
+.product-description {
+    font-size: 0.95em; /* Slightly larger */
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-weight: 700; /* Bold */
+    color: orange; /* Match theme */
+    font-size: 1.3em; /* Larger */
+    text-align: right; /* Align right */
+}
+
+/* Link styling within product items */
+a.product-link { /* Class for links wrapping title/image */
+    text-decoration: none;
+    color: inherit;
+}
+a.product-link:hover h3.product-title { /* Example hover on title */
+     color: orange;
+}
+
+
+/* ===== Product Purchase Page Specific Styles ===== */
+
+.product-purchase-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 40px; /* Increased Space between image and details */
+    max-width: 1100px; /* Max width of the product area */
+    margin: 30px auto; /* Center the container */
+    padding: 30px 40px; /* Increased Padding inside the container */
+    background-color: #fff; /* White background for the product area */
+    color: #333; /* Dark text color */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    align-items: flex-start; /* Align items to top */
+}
+
+.product-image-gallery {
+    flex: 1 1 450px; /* Adjust flex basis */
+    max-width: 500px; /* Limit image size */
+    margin: 0; /* Remove auto margin */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between main image and thumbnails */
+}
+
+.main-image-container { /* Container for figure */
+    margin: 0; /* Reset figure margin */
+    border: 1px solid #eee; /* Add border around main image */
+    border-radius: 6px;
+    overflow: hidden; /* Hide potential overflow */
+}
+
+.main-product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0; /* Remove inner radius if container has one */
+    border: none; /* Remove inner border */
+    box-shadow: none; /* Remove inner shadow */
+    display: block; /* Ensure image behaves like a block */
+}
+
+/* Thumbnail Styles */
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Space between thumbnails */
+    justify-content: flex-start; /* Align left */
+}
+
+.thumbnail-image {
+    width: 90px; /* Adjust size */
+    height: 90px;
+    object-fit: cover; /* Crop image nicely */
+    border: 2px solid #ddd; /* Default border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    opacity: 0.8;
+}
+
+.thumbnail-image:hover {
+    border-color: #aaa;
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.thumbnail-image.active {
+    border-color: orange; /* Highlight active thumbnail */
+    opacity: 1;
+}
+
+
+.product-details { /* Container for right column */
+    flex: 1 1 500px; /* Allow details to grow/shrink */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-page-title { /* h1 on product page */
+    font-family: 'Georgia', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Responsive title size */
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.product-page-price {
+    font-size: clamp(1.8rem, 4vw, 2.2rem); /* Responsive price */
+    color: orange;
+    font-weight: 700; /* Bold */
+    margin-bottom: 25px;
+}
+
+.product-page-description {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.product-page-description ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 10px;
+    margin-top: 15px;
+}
+
+.product-page-description li {
+    margin-bottom: 8px;
+}
+
+/* Color Selector (for Nail Polish) */
+.color-selector {
+    margin-bottom: 25px;
+}
+
+.color-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+}
+
+.color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-option input[type="radio"] {
+    display: none; /* Hide actual radio button */
+}
+
+.color-option label {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.color-option input[type="radio"]:checked + label {
+    background-color: orange;
+    color: black;
+    border-color: orange;
+    box-shadow: 0 2px 5px rgba(255,165,0,0.3);
+}
+
+.color-option label:hover {
+    border-color: #aaa;
+}
+
+
+.quantity-selector {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-selector label {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0; /* Reset margin */
+}
+
+.quantity-selector input[type="number"] {
+    width: 70px; /* Adjust width */
+    padding: 10px 12px; /* Adjusted padding */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Match other inputs */
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Hide spinner buttons on number input (optional) */
+.quantity-selector input[type=number]::-webkit-inner-spin-button,
+.quantity-selector input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-selector input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+
+.add-to-cart-btn {
+    background-color: orange;
+    background-image: linear-gradient(to bottom, #ffae42, #ff8c00);
+    color: black;
+    font-family: 'Raleway', sans-serif; /* Match other buttons */
+    font-size: 1.1rem; /* Adjusted size */
+    font-weight: 700;
+    padding: 14px 35px; /* Adjusted padding */
+    border: 1px solid #e67e00;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start; /* Align button to the start */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ff8c00;
+    background-image: linear-gradient(to bottom, #ff9d21, #e67e00);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.add-to-cart-btn i {
+    margin-right: 10px; /* Increased space */
+}
+
+/* Styles for Added Sections on Product Page */
+.product-specs, .customer-reviews {
+    margin-top: 35px; /* Increased Space above the section */
+    padding-top: 25px; /* Increased Space below the heading */
+    border-top: 1px solid #eee; /* Separator line */
+}
+
+.product-specs h2, .customer-reviews h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.6em;
+    margin-bottom: 20px; /* Increased space */
+    color: #444;
+    text-align: left; /* Align left */
+    border-bottom: none; /* Remove bottom border */
+    display: block; /* Ensure block display */
+}
+
+/* Styles for Definition List in Specs */
+.product-specs dl {
+    display: grid;
+    grid-template-columns: max-content auto; /* Label column sized to content, value takes rest */
+    gap: 10px 20px; /* Row gap, Column gap */
+    color: #555;
+    font-size: 0.95rem; /* Slightly smaller */
+}
+
+.product-specs dt {
+    font-weight: 700; /* Bold */
+    color: #444;
+}
+
+.product-specs dd {
+    margin-left: 0; /* Reset browser default */
+}
+
+/* Placeholder styles for Reviews */
+.review-placeholder {
+    color: #777;
+    font-style: italic;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Example Review Structure Styles (Uncomment in HTML to use) */
+/*
+.review { ... }
+.review-rating { ... }
+.review-title { ... }
+.review-body { ... }
+.review-author { ... }
+*/
+
+
+.product-meta { /* Optional SKU/Category info */
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-meta span {
+    margin-right: 15px;
+    display: inline-block; /* Ensure proper spacing */
+    margin-bottom: 5px; /* Add space if they wrap */
+}
+
+.product-meta a {
+    color: orange;
+    text-decoration: none;
+    font-weight: 700;
+}
+.product-meta a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== Responsiveness ===== */
+
+/* Styles for medium screens and below (Product Page Adjustments) */
+@media (max-width: 900px) {
+     .product-purchase-container {
+        flex-direction: column; /* Stack image and details */
+        gap: 30px; /* Adjust gap */
+        padding: 25px; /* Adjust padding */
+     }
+     .product-image-gallery, .product-details {
+         flex-basis: auto; /* Reset flex basis */
+         max-width: 100%; /* Allow full width */
+     }
+     .product-page-title {
+         font-size: 2.2rem; /* Adjust size */
+     }
+     .product-page-price {
+         font-size: 1.9rem; /* Adjust size */
+     }
+     .add-to-cart-btn {
+         align-self: stretch; /* Make button full width */
+         text-align: center;
+         padding: 15px 25px; /* Adjust padding */
+     }
+     .product-specs dl {
+         grid-template-columns: max-content 1fr; /* Adjust grid for smaller screens */
+     }
+     .thumbnails {
+         justify-content: center; /* Center thumbnails */
+     }
+}
+
+
+/* Styles for medium screens and below (Store Page Adjustments) */
+@media (max-width: 800px) {
+    /* Store layout already handled */
+}
+
+/* Styles for small screens (General Site Adjustments) */
+@media (max-width: 768px) {
+    /* General responsive styles from original CSS */
+    h1 {
+        font-size: clamp(2rem, 8vw, 2.8rem); /* Adjust responsive size */
+        padding: 10px 20px;
+    }
+
+    nav {
+        padding: 15px;
+        position: static; /* Remove sticky nav on mobile */
+        gap: 8px 10px; /* Adjust gap */
+    }
+
+    nav a {
+        padding: 8px 18px;
+        font-size: 0.95rem;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    section { /* Generic section padding */
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    .form-container, .content-page {
+        padding: 25px 20px;
+    }
+
+    /* Adjust product item layout on store page */
+     .product-item {
+        flex-direction: column; /* Stack image/info */
+        padding: 15px;
+     }
+     .product-image-container {
+         flex-basis: auto; /* Allow auto height */
+         height: 150px; /* Adjust height */
+         width: 100%; /* Full width */
+         margin-bottom: 15px;
+     }
+     .product-price {
+         text-align: left; /* Align left */
+         font-size: 1.2em;
+     }
+
+}
+
+/* Styles for very small screens (General Site Adjustments) */
+@media (max-width: 480px) {
+     h1 {
+        font-size: 2rem;
+     }
+     h2 { font-size: 1.6rem; }
+     h3 { font-size: 1.4rem; }
+
+     /* Product Purchase Page */
+    .product-purchase-container {
+        padding: 20px 15px;
+        margin-top: 20px;
+        gap: 25px;
+    }
+    .product-page-title {
+        font-size: 1.8rem;
+    }
+    .product-page-price {
+        font-size: 1.6rem;
+    }
+    .add-to-cart-btn {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    .quantity-selector input[type="number"] {
+        padding: 8px 10px;
+        width: 60px;
+    }
+    .thumbnails {
+        gap: 8px; /* Reduce gap */
+    }
+    .thumbnail-image {
+        width: 70px; /* Smaller thumbnails */
+        height: 70px;
+    }
+    .product-specs dl {
+        grid-template-columns: 1fr; /* Stack spec labels and values */
+        gap: 5px 0;
+    }
+    .product-specs dt {
+        margin-bottom: 2px;
+    }
+    .color-option label {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* Store page */
+    .category-sidebar { padding: 15px; }
+    .main-content { padding: 15px; }
+    .product-item { padding: 10px; }
+    .product-title { font-size: 1.1em; }
+
+    /* Forms */
+    .form-container { padding: 20px 15px; }
+    .form-button { padding: 10px 20px; font-size: 1rem; }
+
+}
+
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

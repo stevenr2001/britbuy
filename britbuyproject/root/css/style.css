@@ -1,0 +1,522 @@
+/* Base Styles */
+.background {
+    background-image: url("/home/steven/Projects/britbuyproject/root/resources/backgroundimage.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.link_wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.delivery-icon {
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.delivery-icon svg {
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+    fill: #2ecc71;
+    transition: all .35s;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: black;
+    border-bottom: 2px solid orange;
+}
+
+nav a {
+    color: white;
+    background: orange;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav a.current {
+    font-size: 22px;
+    background-color: maroon;
+    font-weight: bolder;
+}
+
+nav a.current:hover {
+    background: grey;
+}
+
+nav a:hover {
+    background: #ff8c00;
+    transform: translateY(-2px);
+}
+
+.navigational {
+    display: inline;
+    margin: 0;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    display: center;
+    font-size: 50px;
+}
+
+header section {
+    display: inline;
+}
+
+h1 {
+    color: white;
+    font-size: 60px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    display: inline-block;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.hyphen {
+    color: red;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.about-section {
+    background: rgba(189, 241, 239, 0.8);
+    color: #000;
+    position: absolute;
+    right: 1400px;
+    top: 100px;
+    max-width: 480px;
+    max-height: fit-content;
+    text-align: center;
+    padding: 70px 70px 120px 70px;
+    border-radius: 10%;
+    font-style: normal;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-left: 20px solid orange;
+}
+
+strong.about-section {
+    font-weight: bold;
+}
+
+.aboutus {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 40px;
+    padding-top: 0%;
+    color: rgba(92, 73, 36, 1);
+    text-decoration: underline;
+}
+
+/* Delivery Button */
+.delivery {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    background: #333;
+    text-align: center;
+    border: 3px solid #333;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.delivery:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.delivery:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #222;
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.delivery:hover {
+    color: #fff;
+    width: 200px;
+    border: 3px solid #2ecc71;
+    background: transparent;
+    color: #2ecc71;
+}
+
+.delivery:hover:before {
+    width: 100%;
+}
+
+.delivery:hover + .delivery-icon {
+    border: 3px solid #2ecc71;
+    right: -25%;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.welcome {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: orange;
+    display: inline;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 10px solid orange;
+}
+
+.intro {
+    color: #333;
+    background: white;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    border-left: 5px solid orange;
+    text-align: left;
+}
+
+.intro strong {
+    color: #000;
+}
+
+/* Trust Badge */
+.trust-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.trust-badge svg {
+    filter: drop-shadow(0 2px 4px rgba(76, 175, 80, 0.3));
+}
+
+.trust-badge span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* CTA Button */
+.cta-container {
+    margin: 30px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: orange;
+    color: black;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+}
+
+.cta-button:hover {
+    background: #ff8c00;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 165, 0, 0.4);
+}
+
+.cta-button i {
+    margin-left: 8px;
+}
+
+/* Featured Products */
+.featured-products {
+    margin: 60px auto;
+    max-width: 1200px;
+}
+
+.featured-products h3 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: orange;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-card h4 {
+    color: #333;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.price {
+    color: orange;
+    font-weight: bold;
+    padding: 0 15px 15px;
+    font-size: 20px;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 1px solid orange;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+        padding: 15px 25px;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .intro {
+        padding: 20px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-section {
+        position: relative;
+        right: auto;
+        top: auto;
+        max-width: 100%;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ===== Layout for Sidebar and Main Content ===== */
+
+/* NEW Container using Flexbox for the sidebar + main content layout */
+.store-layout-container {
+    display: flex;
+    /* Adjust max-width and margin as needed, or remove if handled by background-overlay */
+    /* max-width: 1200px; */
+    /* margin: 0 auto;  */
+    padding: 0 15px; /* Add some padding if needed */
+    gap: 25px; /* Adjust space between sidebar and main content */
+    margin-top: 50px; /* Optional: Add space below the header */
+    
+    
+}
+
+/* Category Sidebar Styling */
+/* Category Sidebar Styling */
+.category-sidebar {
+    flex: 0 0 220px; /* Adjust width (220px here) as desired */
+    background-color: #f8f8f8; /* Light background for sidebar */
+    padding: 20px;
+    border: 1px solid #ddd; /* Use border instead of just border-right */
+    border-radius: 5px; /* Optional: Rounded corners */
+    /* Removed height: fit-content; to allow stretching */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Optional: Subtle shadow */
+    margin-top: 20px;
+    flex-flow: wrap;
+    
+}
+
+.category-sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 20px; /* Increased space */
+    font-size: 1.3em; /* Adjusted size */
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Category List Styling */
+.category-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.category-item {
+    margin-bottom: 10px; /* Space between category items */
+}
+
+/* Category Link Styling */
+.category-link {
+    text-decoration: none; /* Remove underline */
+    color: #444; /* Slightly darker link color */
+    display: block; /* Make the link fill the list item horizontally */
+    padding: 8px 10px; /* Increased padding */
+    border-radius: 4px; /* Rounded corners for links */
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease; /* Smooth hover effect */
+}
+
+.category-link:hover,
+.category-link:focus { /* Style for hover and keyboard focus */
+    background-color: #e9e9e9; /* Subtle background on hover */
+    color: #0056b3; /* Darker blue on hover */
+    padding-left: 15px; /* Indent slightly on hover */
+}
+
+/* Main Content Area Styling */
+/* This targets the <main> element which now has the class "main-content" */
+.main-content {
+    flex-grow: 1; /* Allow main content to take remaining space */
+    /* Remove padding if your existing .products or .product-column styles handle it */
+    /* padding: 0 20px; */
+}
+
+/* Keep your existing styles for .products, .product-column, .product-item etc. */
+/* Ensure they work correctly within the new .main-content container */
+
+
+/* ===== Basic Responsiveness (Example) ===== */
+/* On smaller screens, stack the sidebar above the content */
+@media (max-width: 800px) { /* Adjusted breakpoint */
+    .store-layout-container {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 20px; /* Adjust gap for stacked layout */
+        padding: 0 10px; /* Adjust padding */
+    }
+
+    .category-sidebar {
+        flex-basis: auto; /* Reset flex-basis */
+        width: 100%;      /* Make sidebar full width */
+        margin-bottom: 20px; /* Add space below sidebar */
+        /* Remove fixed height constraints if any were added elsewhere */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    /* You might not need to change .main-content much if its inner elements control padding */
+}
+
+/* Optional: Further refine styles for very small screens if needed */
+@media (max-width: 480px) {
+    .category-sidebar h2 {
+        font-size: 1.2em;
+    }
+    .category-link {
+        padding: 6px 8px;
+    }
+    /* Adjust product column/item styles if they become too cramped */
+}
